@@ -7,6 +7,7 @@
     <title>@yield('title')</title>
     <!-- Выведение соответствующего названия страницы из предствления -->
     <link rel="shortcut icon" href="" type="image/x-icon">
+    <link rel="stylesheet" href="{{asset('css/index.css')}}">
     @vite('resources/css/app.css')
     @vite('resources/js/app.js')
     <!-- Подключение библиотеки tailwind -->
