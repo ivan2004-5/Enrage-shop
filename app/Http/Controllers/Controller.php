@@ -1,8 +1,24 @@
 <?php
 
 namespace App\Http\Controllers;
+use BaseController;
 
-abstract class Controller
-{
-    //
+class Controller  {
+
+    public function index() {
+
+
+
+
+        return view('index');
+    }
+
+    public function catalog() {
+        return view('catalog');
+    }
+
+    public function contact() {
+        return view('contact');
+    }
+
 }

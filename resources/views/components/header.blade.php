@@ -8,9 +8,9 @@
             </a>
     
             <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-              <li><a href="index.php" class="nav-link px-2 text-secondary">Главная</a></li>
-              <li><a href="catalog.php" class="nav-link px-2 text-white">Услуги</a></li>
-              <li><a href="contact.php" class="nav-link px-2 text-white">Поддержка</a></li>
+              <li><a href="{{route('index')}}" class="nav-link px-2 text-white text-secondary">Главная</a></li>
+              <li><a href="{{route('catalog')}}" class="nav-link px-2 text-white">Услуги</a></li>
+              <li><a href="{{route('contact')}}" class="nav-link px-2 text-white">Поддержка</a></li>
             </ul>
                <div class="text-end">
               <a  href="account.php" class="btn btn-warning  me-2">Личный кабинет</a>
