@@ -81,31 +81,34 @@
 }
 
 .career {
-  padding: 80px;
+  padding: 80px 0px 0px;
 }
 
 .container-flex {
   display: flex;
-  padding: 0px 32px;
+  justify-content: space-around;
+  padding: 0px 100px;
 }
 
 .kickstart {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  margin: 64px 0 16px;
 }
 
 .info-wrap {
   display: flex;
   flex-direction: column;
-  width: 60%;
-  margin-right: 32px;
 }
 
 .perk {
   display: flex;
   align-items: flex-start;
+  flex-direction: row;
+}
+
+.perk img {
+  margin-right: 16px;
 }
 
 .info {
@@ -118,27 +121,26 @@
   color: #fff;
   font-size: 30px;
   font-weight: 700;
-  margin: 0px 0px 24px;
+  margin: 0px 0px 44px;
 }
 
 .mark-title {
   color: #fff;
   font-size: 20px;
   font-weight: 700;
+  margin: 0px 0px 4px;
 }
 
 .mark-description {
+  width: 75%;
   color: #9F9F9F;
   font-size: 15px;
   font-weight: 400;
+  margin: 0px 0px 20px;
 }
 
-/* .info-block p {
-  font-size: 30px;
-  width: 750px;
+.genres h3 {
+  color: #fff;
+  font-size: 20px;
+  font-weight: 600;
 }
-
-.flex-chest {
-  width: 760px;
-  color: #9F9F9F;
-} */

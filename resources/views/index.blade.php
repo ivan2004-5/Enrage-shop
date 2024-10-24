@@ -76,115 +76,53 @@
                     <h3 class="title">Начните свою музыкальную карьеру уже сегодня</h3>
                     <div class="perks-wrapper">
                         <div class="perk ng-star-inserted">
-                        <img src="{{asset('image/mark.png')}}" alt="mark">
+                            <img src="{{asset('image/mark.png')}}" alt="mark">
                             <div class="info">
                                 <span class="mark-title">Крупнейший рынок высококачественных ремиксов</span>
+                                <span class="mark-description">Получите доступ к более чем 322 миллионам битов от нашего растущего сообщества производителей по всему миру.</span>
                             </div>
-                            <span class="mark-description">Получите доступ к более чем 322 миллионам битов от нашего растущего сообщества производителей по всему миру.</span>
+                        </div>
+                        <div class="perk ng-star-inserted">
+                            <img src="{{asset('image/mark.png')}}" alt="mark">
+                            <div class="info">
+                                <span class="mark-title">Бесперебойный процесс покупки</span>
+                                <span class="mark-description">Мы делаем это без особых усилий. Просматривайте свои любимые жанры и совершайте покупки с легкостью - и все это на одной платформе.</span>
+                            </div>
+                        </div>
+                        <div class="perk ng-star-inserted">
+                            <img src="{{asset('image/mark.png')}}" alt="mark">
+                            <div class="info">
+                                <span class="mark-title">Простые варианты лицензирования</span>
+                                <span class="mark-description">Контракты не должны сбивать с толку. Тратьте меньше времени на то, чтобы ломать голову, и больше времени на создание вашего нового хита.</span>
+                            </div>
+                        </div>
+                        <div class="perk ng-star-inserted">
+                            <img src="{{asset('image/mark.png')}}" alt="mark">
+                            <div class="info">
+                                <span class="mark-title">Сообщество, которое понимает вас</span>
+                                <span class="mark-description">Мы такие же создатели, как и вы. Независимо от того, нужна ли вам наша команда поддержки или вы хотите сотрудничать с креативщиками-единомышленниками, у нас есть для вас дом.</span>
+                            </div>
                         </div>
                     </div>
                 </div>
+                <img class="image-wrap" src="{{asset('image/man-at-work.png')}}" alt="">
             </section>
         </div>
     </section>
 
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- <div class="info-block">
-    <p class="text-white font-extrabold">Начните свою музыкальную карьеру уже сегодня</p>
-    <div class="pt-3 block mx-auto">
-        <div class="flex">
-            <img class="block max-h-6" src="{{asset('image/mark.png')}}" alt="">
-            <div class="flex-chest flex-col">
-                <h2 class="text-white font-bold pl-3">Крупнейший рынок высококачественных ремиксов</h2>
-                <h3 class="pl-3">Получите доступ к более чем 322 миллионам битов от нашего растущего сообщества производителей по всему миру.</h3>
-            </div>
-        </div>x
-        <div class="flex">
-            <img class="block max-h-6" src="{{asset('image/mark.png')}}" alt="">
-
-            <div class="flex-chest flex-col">
-                <h2 class="text-white font-bold pl-3">Бесперебойный процесс покупки</h2>
-                <h3 class="pl-3">Мы делаем это без особых усилий. Просматривайте свои любимые жанры и совершайте покупки с легкостью - и все это на одной платформе.</h3>
-            </div>
-        </div>
-        <div class="flex">
-            <img class="block max-h-6" src="{{asset('image/mark.png')}}" alt="">
-
-            <div class="flex-chest flex-col">
-                <h2 class="text-white font-bold pl-3">Простые варианты лицензирования</h2>
-                <h3 class="pl-3">Контракты не должны сбивать с толку. Тратьте меньше времени на то, чтобы ломать голову, и больше времени на создание вашего нового хита.</h3>
-            </div>
-        </div>
-        <div class="flex">
-            <img class="block max-h-6" src="{{asset('image/mark.png')}}" alt="">
-
-            <div class="flex-chest flex-col">
-                <h2 class="text-white font-bold pl-3">Сообщество, которое понимает вас</h2>
-                <h3 class="pl-3">Мы такие же создатели, как и вы. Независимо от того, нужна ли вам наша команда поддержки или вы хотите сотрудничать с креативщиками-единомышленниками, у нас есть для вас дом.</h3>
-            </div>
-        </div>
+    <section class="genres">
+        <h3>Популярные жанры</h3>
+    <div class="flex justify-center popular">
+    <img src="{{asset('image/pop.png')}}" alt="">
+    <img src="{{asset('image/hip-hop.png')}}" alt="">
+    <img src="{{asset('image/rock.png')}}" alt="">
+    <img src="{{asset('image/reggae.png')}}" alt="">
+    <img src="{{asset('image/electronic.png')}}" alt="">
+    <img src="{{asset('image/r&b.png')}}" alt="">
     </div>
-</div> -->
+    </section>
+
+</div>
 
 
 @endsection
