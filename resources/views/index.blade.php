@@ -10,7 +10,7 @@
 
 <div class="main">
     <p class="text-white font-black">ТВОЙ ПЕРВЫЙ ХИТ НАЧНЕТСЯ ЗДЕСЬ</p>
-    <button>эщкере</button>
+    <button>Начать</button>
 </div>
 <div class="trending">
     <p class="text-white font-semibold">В тренде</p>
