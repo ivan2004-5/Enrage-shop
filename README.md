@@ -8,6 +8,4 @@ php artisan serve
 
 
 
-https://www.beatstars.com/
-
 font - Poppins
