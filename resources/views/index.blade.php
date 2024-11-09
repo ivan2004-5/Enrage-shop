@@ -111,8 +111,8 @@
     </section>
 
     <section class="genres">
-        <h3>Популярные жанры</h3>
-    <div class="flex justify-center popular">
+        <h3 class="">Популярные жанры</h3>
+    <div class="flex justify-evenly mt-9">
     <img src="{{asset('image/pop.png')}}" alt="">
     <img src="{{asset('image/hip-hop.png')}}" alt="">
     <img src="{{asset('image/rock.png')}}" alt="">
@@ -123,6 +123,18 @@
     </section>
 
 </div>
+
+<section class="flex enrage-sup">
+
+    <div class="wat-doin-better-shop ml-32">
+        <h3 class="text-white font-semibold mb-5">Что делает Enrage такими замечательными?</h3>
+        <h4 class="text-white font-semibold mb-6">Обращайтесь не только к нам. Обращайтесь к нашему сообществу.</h4>
+        <img class="max-w-60" src="{{asset('image/teamwork.svg')}}" alt="">
+    </div>
+
+    <div class="pc-work"></div>
+
+</section>
 
 
 @endsection

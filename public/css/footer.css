@@ -1,5 +1,19 @@
-/* footer {
+footer {
     background-color: #000;
     width: 100%;
-    height: 542px;
-} */
+    height: 300px;
+}
+
+.download {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 45%;
+    gap: 30px;
+}
+
+.info-footer {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
