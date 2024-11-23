@@ -16,5 +16,5 @@
 <div class="under-header min-w-9xl">
   <a href="index" class="min-w-56 text-center border-x-1">Главная</a>
   <a href="service" class="min-w-56 text-center border-x-1">Услуги</a>
-  <a href="#" class="min-w-56 text-center border-x-1">Корзина</a>
+  <a href="basket" class="min-w-56 text-center border-x-1">Корзина</a>
 </div>

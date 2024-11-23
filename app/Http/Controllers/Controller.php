@@ -17,8 +17,8 @@ class Controller  {
         return view('service');
     }
 
-    public function contact() {
-        return view('contact');
+    public function basket() {
+        return view('basket');
     }
 
 }
