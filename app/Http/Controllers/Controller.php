@@ -13,8 +13,8 @@ class Controller  {
         return view('index');
     }
 
-    public function catalog() {
-        return view('catalog');
+    public function service() {
+        return view('service');
     }
 
     public function contact() {

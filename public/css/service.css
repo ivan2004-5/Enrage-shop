@@ -1,0 +1,25 @@
+.service {
+    width: 100%;
+    height: 500px;
+    background-color: #141414;
+}
+
+.service p {
+    padding: 22px 292px 0px;
+    font-size: 20px;
+}
+
+.service h3 {
+    color: #C6CFC6;
+}
+
+.service button {
+    width: 130px;
+    height: 38px;
+    background-color: #141414;
+    border: 1px solid transparent;
+    border-image: linear-gradient(#006AFF, #0B3D82);
+    -moz-border-image: -moz-linear-gradient(#006AFF, #0B3D82);
+    -webkit-border-image: -webkit-linear-gradient(#006AFF, #0B3D82);
+    border-image-slice: 1;
+}
