@@ -10,10 +10,10 @@
 
 <section class="new-container">
 
-    <div class="">
+    <div class="in-container">
         <img src="{{asset('image/basket/basket.svg')}}" alt="">
         <h3 class="text-white font-light">В данный момент сейчас корзина пуста</h3>
-        <h3 class="text-white font-light">Хотите сделать заказ?</h3>
+        <h3 class="text-white font-light">Хотите сделать <a href="service">заказ?</h3></a>
     </div>
 
 </section>

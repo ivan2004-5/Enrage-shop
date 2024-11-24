@@ -10,3 +10,9 @@
 .new-container h3 {
     font-size: 25px;
 }
+
+.in-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
