@@ -35,6 +35,7 @@ header {
 }
 
 .profile {
+    display: flex;
     width: 55px;
     height: 55px;
     background-color: #262424;

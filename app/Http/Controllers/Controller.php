@@ -5,20 +5,8 @@ use BaseController;
 
 class Controller  {
 
-    public function index() {
-
-
-
-
-        return view('index');
-    }
-
-    public function service() {
-        return view('service');
-    }
-
-    public function basket() {
-        return view('basket');
+    public function login() {
+        return view('login');
     }
 
 }

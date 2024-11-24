@@ -6,9 +6,9 @@
     <div class="flex gap-2">
       <input type="text" placeholder="Поиск..."><button class="search"><img src="{{asset('image/search-icon.svg')}}" alt=""></button>
     </div>
-    <button class="profile">
+    <a href="{{ route('profile') }}" class="profile">  <!-- Изменено: добавлена ссылка -->
       <img src="{{asset('image/profile.svg')}}" alt="">
-    </button>
+    </a>  <!-- Изменено: button заменен на a -->
 
   </div>
 </header>
