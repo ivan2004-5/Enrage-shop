@@ -7,11 +7,6 @@
     <title>@yield('title')</title>
     <!-- Выведение соответствующего названия страницы из предствления -->
     <link rel="shortcut icon" href="" type="image/x-icon">
-    <link rel="stylesheet" href="{{asset('css/index.css')}}">
-    <link rel="stylesheet" href="{{asset('css/header.css')}}">
-    <link rel="stylesheet" href="{{asset('css/footer.css')}}">
-    <link rel="stylesheet" href="{{asset('css/service.css')}}">
-    <link rel="stylesheet" href="{{asset('css/basket.css')}}">
     <link rel="stylesheet" href="{{asset('css/login.css')}}">
     <link rel="stylesheet" href="{{asset('css/register.css')}}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -26,19 +21,9 @@
     <!-- Подключение собственных стилей -->
 </script>
 </head>
-<body class="dark:bgc171717 dark:bg-custom-202124">
-
-@include('components.header')
-<!-- Подключение компонента шапки сайта -->
 
 <main>
 
     @yield('content')
 
 </main>
-
-@include('components.footer')    
-<!-- Подключение компонента подвала сайта -->
-
-</body>
-</html>
