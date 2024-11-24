@@ -21,9 +21,12 @@
     <!-- Подключение собственных стилей -->
 </script>
 </head>
+<body style="height: 100vh;  overflow-y:hidden; ">
 
-<main>
+<main style="height: 100%">
 
-    @yield('content')
+@yield('content')
 
 </main>
+
+</body>
