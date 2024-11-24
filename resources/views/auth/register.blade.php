@@ -5,11 +5,12 @@
 @endsection
 
 @section('content')
-<div class="enrage">
-    <a href="/"><img src="{{asset('image/auth/enrage.svg')}}" alt=""></a>
-</div>
 
     <div class="auth-wrapper">
+
+        <div class="enrage mb-12">
+            <a href="/"><img src="{{asset('image/auth/enrage.svg')}}" alt=""></a>
+        </div>
 
         <div class="auth-flex">
         <div class="register-block">
