@@ -29,7 +29,7 @@
             <label for="avatar">Аватар:</label>
             <input type="file" class="form-control" id="avatar" name="avatar">
             @if($user->avatar)
-                <img src="{{ asset('storage/' . $user->avatar) }}" alt="Аватар" width="100">
+                <img src="data:image/jpeg;base64,{{ base64_encode($user->avatar) }}" alt="Аватар" width="100">
             @endif
         </div>
 

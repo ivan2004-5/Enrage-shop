@@ -1,22 +1,21 @@
 @extends('layouts.app')
-<!-- Подключение основного шаблона для главной страницы -->
+
 @section('title')
 Личный кабинет
 @endsection
-<!-- Объявление названия для представления, которое потом будет выводиться в браузере -->
 
-<!-- Секция с основным изменяемым содержимым -->
 @section('content')
-
 <div class="show-flex">
     <div class="show">
-        <img class=" pt-8" src="{{asset('image/show/profile.svg')}}" alt="">
+        @if($user->avatar)
+            <img class="pt-8 rounded-xl" src="data:image/jpeg;base64,{{ base64_encode($user->avatar) }}" alt="Аватар" width="100">
+        @else
+            <img class="pt-8 rounded-xl" src="{{ asset('image/show/profile.svg') }}" alt="Аватар">
+        @endif
         <p class="text-white">{{ $user->name }}</p>
         <p class="text-white text-sm font-thin">{{ $user->email }}</p>
         <a href="{{ route('profile.edit') }}" class="btn btn-danger text-white font-light">Редактировать профиль</a>
-        <button class="btn btn-danger text-white font-light">Отследить заказы</button> </a> <!-- Кнопка пока неактивна -->
-        <!-- <button class="custom text-white font-light" type="submit" class="btn btn-danger">Редактировать профиль</button> -->
-        <button class="custom text-white font-light" type="submit" class="btn btn-danger">Отследить заказы</button>
+        <button class="btn btn-danger text-white font-light">Отследить заказы</button>
 
         <form method="POST" action="{{ route('logout') }}">
             @csrf
@@ -24,25 +23,4 @@
         </form>
     </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 @endsection
-<!-- Секция с основным изменяемым содержимым -->

@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Storage;
 use App\Models\User;
 
 class ProfileController extends Controller
@@ -44,13 +43,12 @@ class ProfileController extends Controller
         $user->email = $request->email;
 
         if ($request->hasFile('avatar')) {
-            if ($user->avatar) {
-                Storage::disk('public')->delete($user->avatar);
-            }
-            $path = $request->file('avatar')->store('avatars', 'public');
-            $user->avatar = $path;
+            $avatar = file_get_contents($request->file('avatar')->getRealPath());
+            $user->avatar = $avatar;
         }
+
         dd($request);
+
         $user->save();
 
         return redirect()->route('profile')->with('success', 'Профиль успешно обновлен!');
