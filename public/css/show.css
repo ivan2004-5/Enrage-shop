@@ -1,0 +1,28 @@
+body {
+    background-color: #1E1E1E;
+}
+
+.show-flex {
+    width: 100%;
+    height: 600px;
+}
+
+.show {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #141414;
+    width: 318px;
+    height: 440px;
+    border-radius: 10px;
+    gap: 20px;
+    margin-left: 120px;
+    margin-top: 22px;
+}
+
+.custom {
+    background-color: #262626;
+    width: 272px;
+    height: 40px;
+    border-radius: 7px;
+}
