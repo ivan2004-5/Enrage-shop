@@ -47,8 +47,6 @@ class ProfileController extends Controller
             $user->avatar = $avatar;
         }
 
-        dd($request);
-
         $user->save();
 
         return redirect()->route('profile')->with('success', 'Профиль успешно обновлен!');

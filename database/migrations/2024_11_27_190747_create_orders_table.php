@@ -8,18 +8,19 @@ return new class extends Migration
 {
     public function up(): void
     {
-        Schema::create('services', function (Blueprint $table) {
+        Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->string('fone_img');
-            $table->string('desc');
-            $table->decimal('price', 8, 2);
+            $table->unsignedBigInteger('user_id')->nullable();
+            $table->text('description');
+            $table->decimal('total_price', 10, 2);
+            $table->string('mp3_file_path')->nullable();
             $table->timestamps();
         });
     }
 
     public function down(): void
     {
-        Schema::dropIfExists('services');
+        Schema::dropIfExists('orders');
     }
 };
+

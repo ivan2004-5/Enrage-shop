@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Service;
 
 class IndexController extends Controller
 {
@@ -13,7 +14,8 @@ class IndexController extends Controller
 
     public function service()
     {
-        return view('service');
+        $services = Service::all();
+        return view('service', compact('services'));
     }
 
     public function basket()
