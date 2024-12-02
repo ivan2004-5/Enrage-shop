@@ -13,7 +13,8 @@ return new class extends Migration
     {
         Schema::create('carts', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id')->nullable(); // nullable, если корзина не привязана к пользователю
+            $table->unsignedBigInteger('user_id')->nullable();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -26,4 +27,3 @@ return new class extends Migration
         Schema::dropIfExists('carts');
     }
 };
-

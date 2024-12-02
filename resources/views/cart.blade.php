@@ -15,13 +15,14 @@
                 <h3 class="text-white font-light">Ваша корзина:</h3>
                 <ul>
                     @foreach($cartItems as $item)
-                        <li>{{ $item->service->title }} - {{ $item->service->price }} рублей ({{ $item->quantity }} шт.) - <a href="#" class="remove-item" data-item-id="{{ $item->id }}">Удалить</a></li>
+                        <li class="text-white">{{ $item->service->title }} - {{ $item->service->price }} рублей ({{ $item->quantity }} шт.) - <a href="#" class="remove-item" data-item-id="{{ $item->id }}">Удалить</a></li>
                     @endforeach
                 </ul>
-                <a href="{{ route('order.create') }}" class="btn btn-primary">Оформить заказ</a> </div>
+                <a class="text-white" href="{{ route('order.create') }}" class="btn btn-primary">Оформить заказ</a> </div>
             </div>
         @else
             <div class="in-container">
+            <img src="{{asset('image/basket/basket.svg')}}" alt="">
                 <p class="text-white">Ваша корзина пуста.</p>
                 <a class="text-white" href="{{ route('service') }}">Перейти к услугам</a>
             </div>

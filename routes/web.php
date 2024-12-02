@@ -8,6 +8,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\Admin\TrackController;
 
 Route::get('/', [IndexController::class, 'index'])->name('index');
 Route::get('/service', [IndexController::class, 'service'])->name('service');
@@ -38,6 +39,7 @@ Route::get('/order/create', [OrderController::class, 'create'])->name('order.cre
 Route::post('/order', [OrderController::class, 'store'])->name('order.store');
 Route::get('/order/success', [OrderController::class, 'success'])->name('order.success');
 
-
-
-
+// админка
+Route::middleware(['auth', 'admin'])->group(function () {
+    Route::resource('services', ServiceController::class);
+});

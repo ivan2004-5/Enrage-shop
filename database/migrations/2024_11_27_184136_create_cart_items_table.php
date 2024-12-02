@@ -15,11 +15,10 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('cart_id');
             $table->unsignedBigInteger('service_id');
-            $table->unsignedInteger('quantity')->default(1);
-            $table->timestamps();
-
+            $table->unsignedInteger('quantity');
             $table->foreign('cart_id')->references('id')->on('carts')->onDelete('cascade');
             $table->foreign('service_id')->references('id')->on('services')->onDelete('cascade');
+            $table->timestamps();
         });
     }
 

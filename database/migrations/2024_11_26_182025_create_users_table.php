@@ -16,7 +16,8 @@ return new class extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
-            $table->binary('avatar')->nullable(); // Изменено на binary
+            $table->binary('avatar')->nullable();
+            $table->boolean('is_admin')->default(false);
         });
     }
 

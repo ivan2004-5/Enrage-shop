@@ -10,6 +10,19 @@
 
 <div class="service">
     <p class="text-white font-semibold">Услуги</p>
+
+    @if(auth()->user()->isAdmin())
+        <div class="mb-5">
+            <a href="{{ route('services.create') }}" class="btn btn-primary">Добавить услугу</a>
+        </div>
+    @endif
+
+    @if(session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+    @endif
+
     <div class="flex justify-center gap-8 my-5">
         @foreach ($services as $service)
             <div class="flex flex-col">
@@ -20,30 +33,20 @@
                     @csrf
                     <button type="submit" class="text-white mt-2">В корзину</button>
                 </form>
+
+                @if(auth()->user()->isAdmin())
+                    <div class="mt-2">
+                        <a href="{{ route('services.edit', $service) }}" class="btn btn-sm btn-primary">Редактировать</a>
+                        <form action="{{ route('services.destroy', $service) }}" method="POST" style="display:inline;">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Вы уверены?')">Удалить</button>
+                        </form>
+                    </div>
+                @endif
             </div>
         @endforeach
     </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 @endsection
 <!-- Секция с основным изменяемым содержимым -->
