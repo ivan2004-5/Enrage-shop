@@ -10,10 +10,11 @@ use Illuminate\Notifications\Notifiable;
 class User extends Authenticatable
 {
 
-    public function isAdmin()
+    public function isAdmin(): bool // Добавлено указание типа возвращаемого значения и улучшена читаемость.
     {
-        return $this->is_admin;
+        return (bool)$this->is_admin; // Явное приведение к булеву типу для безопасности
     }
+
 
     public function cart()
     {

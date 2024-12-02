@@ -2,9 +2,9 @@
 
 namespace App\Http\Middleware;
 
-use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
+use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken as Middleware;
 
-class Middleware
+class MiddlewareAliases extends Middleware
 {
     protected $middlewareAliases = [
         // другие middleware

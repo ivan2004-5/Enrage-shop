@@ -2,7 +2,7 @@
 
 @section('content')
     <h1>Редактировать услугу</h1>
-    <form action="{{ route('services.update', $service) }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('admin.services.update', $service) }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
         <div class="form-group">

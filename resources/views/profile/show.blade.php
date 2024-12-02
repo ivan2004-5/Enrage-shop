@@ -15,7 +15,6 @@
         <p class="text-white">{{ $user->name }}</p>
         <p class="text-white text-sm font-thin">{{ $user->email }}</p>
         <a href="{{ route('profile.edit') }}" class="btn btn-danger text-white font-light">Редактировать профиль</a>
-        <button class="btn btn-danger text-white font-light">Отследить заказы</button>
 
         <form method="POST" action="{{ route('logout') }}">
             @csrf

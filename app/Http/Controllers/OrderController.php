@@ -23,11 +23,15 @@ class OrderController extends Controller
     {
         $request->validate([
             'description' => 'required',
-            'mp3_file' => 'required|file|mimes:mp3|max:10240',
+            'mp3_file' => 'nullable|file|mimes:mp3|max:10240', // nullable - mp3 файл не обязателен
         ]);
 
         try {
-            $cart = Auth::user()->cart()->firstOrCreate([]);
+            $cart = Auth::user()->cart()->first(); // Используем first() вместо firstOrCreate([])
+            if (!$cart || $cart->cartItems->isEmpty()) {
+                return redirect()->route('cart')->with('error', 'Ваша корзина пуста!');
+            }
+
             $totalPrice = $cart->cartItems->sum(fn ($item) => $item->service->price * $item->quantity);
 
             $order = Order::create([
@@ -54,7 +58,7 @@ class OrderController extends Controller
             return redirect()->route('order.success')->with('success', 'Заказ успешно оформлен!');
         } catch (\Exception $e) {
             Log::error('Order creation failed: ' . $e->getMessage());
-            return redirect()->back()->withErrors(['error' => 'Ошибка при оформлении заказа.']);
+            return redirect()->back()->withErrors(['error' => 'Ошибка при оформлении заказа. Попробуйте еще раз.']);
         }
     }
 
