@@ -23,3 +23,14 @@
     -webkit-border-image: -webkit-linear-gradient(#006AFF, #0B3D82);
     border-image-slice: 1;
 }
+
+.alert-success {
+    display: flex;
+    justify-content: center;
+    color: #fff;
+}
+
+.create-service {
+    display: flex;
+    justify-content: center;
+}

@@ -23,8 +23,8 @@
         @else
             <div class="in-container">
             <img src="{{asset('image/basket/basket.svg')}}" alt="">
-                <p class="text-white">Ваша корзина пуста.</p>
-                <a class="text-white" href="{{ route('service') }}">Перейти к услугам</a>
+                <p class="text-white text-xl">Ваша корзина пуста</p>
+                <a class="text-white text-xl" href="{{ route('service') }}">Перейти к услугам</a>
             </div>
         @endif
     </section>

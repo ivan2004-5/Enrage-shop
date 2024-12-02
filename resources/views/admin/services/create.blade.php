@@ -1,25 +1,19 @@
 @extends('layouts.app')
 
 @section('content')
-    <h1>Create Track</h1>
-    <form action="{{ route('admin.services.store') }}" method="POST" enctype="multipart/form-data">
+<div class="create-cont">
+    <form class="create-flex" action="{{ route('admin.services.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
-        <div class="form-group">
-            <label for="title">Title</label>
-            <input type="text" name="title" class="form-control" required>
-        </div>
-        <div class="form-group">
-            <label for="description">Description</label>
-            <textarea name="description" class="form-control"></textarea>
-        </div>
-        <div class="form-group">
-            <label for="price">Price</label>
-            <input type="number" name="price" class="form-control" step="0.01" required>
-        </div>
-        <div class="form-group">
-            <label for="image">Image</label>
-            <input type="file" name="fone_img" class="form-control-file">
-        </div>
-        <button type="submit" class="btn btn-primary">Create</button>
+        <h1 class="text-white">Добавления услуги</h1>
+        <label class="text-white" for="title">Название</label>
+        <input type="text" name="title" class="form-control" required>
+        <label class="text-white" for="description">Описание</label>
+        <textarea name="description" class="form-control"></textarea>
+        <label class="text-white" for="price">Цена</label>
+        <input type="number" name="price" class="form-control" step="0.01" required>
+        <label class="text-white" for="image">Изображение</label>
+        <input class="text-white" type="file" name="fone_img" class="form-control-file">
+        <button class="text-white" type="submit" class="btn btn-primary">Добавить</button>
     </form>
+</div>
 @endsection

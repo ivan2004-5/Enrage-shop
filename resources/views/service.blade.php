@@ -29,19 +29,13 @@
             </form>
 
             @if(auth()->user()->isAdmin())
-            <div class="mb-5">
-                <a href="{{ route('admin.services.create') }}" class="btn btn-primary">Добавить услугу</a>
-            </div>
-            @endif
-
-            @if(auth()->user()->isAdmin())
             <div class="mt-2">
-                <a href="{{ route('admin.services.edit', $service) }}" class="btn btn-sm btn-primary">Редактировать</a>
+                <a href="{{ route('admin.services.edit', $service) }}" class="text-white btn btn-sm btn-primary">Редактировать</a>
                 <form action="{{ route('admin.services.destroy', $service) }}" method="POST" style="display:inline;">
                     @csrf
                     <div>
                     @method('DELETE')
-                    <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Вы уверены?')">Удалить</button>
+                    <button type="submit" class="text-white btn btn-sm btn-danger" onclick="return confirm('Вы уверены?')">Удалить</button>
                     </div>
                 </form>
             </div>
@@ -49,6 +43,11 @@
         </div>
         @endforeach
     </div>
+    @if(auth()->user()->isAdmin())
+            <div class="mb-5">
+                <a href="{{ route('admin.services.create') }}" class="text-white btn btn-primary create-service">Добавить услугу</a>
+            </div>
+            @endif
 </div>
 @endsection
 <!-- Секция с основным изменяемым содержимым -->
