@@ -22,8 +22,8 @@
             </div>
         @else
             <div class="in-container">
-                <p>Ваша корзина пуста.</p>
-                <a href="{{ route('service') }}">Перейти к услугам</a>
+                <p class="text-white">Ваша корзина пуста.</p>
+                <a class="text-white" href="{{ route('service') }}">Перейти к услугам</a>
             </div>
         @endif
     </section>

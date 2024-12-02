@@ -2,13 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Order extends Model
 {
-    use HasFactory;
-
     protected $fillable = ['user_id', 'description', 'total_price', 'mp3_file_path'];
 
     public function user()
@@ -21,4 +18,3 @@ class Order extends Model
         return $this->hasMany(OrderItem::class);
     }
 }
-

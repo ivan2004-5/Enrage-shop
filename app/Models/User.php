@@ -9,6 +9,11 @@ use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
+    public function cart()
+    {
+        return $this->hasOne(Cart::class);
+    }
+    
     /** @use HasFactory */
     use HasFactory, Notifiable;
 
@@ -44,4 +49,3 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 }
-

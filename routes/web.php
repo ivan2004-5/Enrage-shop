@@ -30,11 +30,14 @@ Route::put('/profile/update', [ProfileController::class, 'update'])->name('profi
 Route::get('/service', [ServiceController::class, 'index'])->name('service');
 Route::post('/cart/{serviceId}', [CartController::class, 'addToCart'])->name('cart.add'); //Маршрут для добавления товара
 Route::get('/cart', [CartController::class, 'showCart'])->name('cart'); //Маршрут для отображения корзины
+Route::post('/cart/{service}/add', [CartController::class, 'add'])->name('cart.add');
 Route::delete('/cart/{itemId}', [CartController::class, 'removeCartItem'])->name('cart.remove'); //Маршрут для удаления товара
 
 // Маршруты для оформления заказа в корзине
 Route::get('/order/create', [OrderController::class, 'create'])->name('order.create');
 Route::post('/order', [OrderController::class, 'store'])->name('order.store');
 Route::get('/order/success', [OrderController::class, 'success'])->name('order.success');
+
+
 
 
