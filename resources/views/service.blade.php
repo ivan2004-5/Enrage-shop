@@ -30,7 +30,7 @@
 
             @if(auth()->user()->isAdmin())
             <div class="mt-2">
-                <a href="{{ route('admin.services.edit', $service) }}" class="text-white btn btn-sm btn-primary">Редактировать</a>
+            <button class="text-white btn btn-sm btn-danger"><a href="{{ route('admin.services.edit', $service) }}" class="text-white btn btn-sm btn-primary">Редактировать</a></button>
                 <form action="{{ route('admin.services.destroy', $service) }}" method="POST" style="display:inline;">
                     @csrf
                     <div>
