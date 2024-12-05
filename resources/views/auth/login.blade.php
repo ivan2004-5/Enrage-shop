@@ -52,6 +52,12 @@
                         <button type="submit" class="btn btn-primary">
                             {{ __('Войти') }}
                         </button>
+                        <a
+                            href="{{route('yandex')}}"
+                            class="w-full gap-1 mt-4 text-hover hover:text-custom-4D52BC hover:border-border-4D52BC h-11 inline-flex items-center justify-center whitespace-nowrap rounded-md font-medium transition-colors
+    focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 border border-input shadow-sm">
+                            Yandex
+                        </a>
                     </div>
                 </form>
             </div>

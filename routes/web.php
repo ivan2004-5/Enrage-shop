@@ -9,6 +9,8 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\OrderController;
 use App\Http\Middleware\AdminMiddleware;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AuthenticatedSessionController;
 
 Route::get('/', [IndexController::class, 'index'])->name('index');
 Route::get('/service', [IndexController::class, 'service'])->name('service');
@@ -46,3 +48,10 @@ Route::middleware(['auth', AdminMiddleware::class])->prefix('admin')->as('admin.
 
 // Маршруты поиска
 Route::get('/search', [ServiceController::class, 'search'])->name('service.search')->middleware('auth');
+
+// Маршруты яндекс авторизации
+Route::get('login/yandex', [AuthenticatedSessionController::class, 'yandex'])->name('yandex');
+    Route::get('login/yandex/redirect', [AuthenticatedSessionController::class, 'yandexRedirect'])->name('yandexRedirect');
+
+    // Маршрут для скачивания отчета
+Route::get('/admin/download-report', [AdminController::class, 'downloadReport'])->name('admin.download-report')->middleware(['auth', AdminMiddleware::class]);

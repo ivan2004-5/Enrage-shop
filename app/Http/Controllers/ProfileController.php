@@ -10,11 +10,13 @@ class ProfileController extends Controller
 {
     public function show()
     {
+        
         if (Auth::check()) {
             return view('profile.show', ['user' => Auth::user()]);
         } else {
             return redirect()->route('register'); // Или route('login') если надо перенаправить на вход
         }
+        
     }
 
     public function edit()
@@ -51,5 +53,6 @@ class ProfileController extends Controller
 
         return redirect()->route('profile')->with('success', 'Профиль успешно обновлен!');
     }
+    
 }
 
