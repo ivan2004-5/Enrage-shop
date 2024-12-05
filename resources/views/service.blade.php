@@ -12,7 +12,7 @@
     <p class="text-white font-semibold">Услуги</p>
 
     @if(session('success'))
-    <div class="alert alert-success">
+    <div class="alert-1 alert-success">
         {{ session('success') }}
     </div>
     @endif

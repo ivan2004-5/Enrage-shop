@@ -43,3 +43,6 @@ Route::get('/order/success', [OrderController::class, 'success'])->name('order.s
 Route::middleware(['auth', AdminMiddleware::class])->prefix('admin')->as('admin.')->group(function () {
     Route::resource('services', ServiceController::class); // Используем Route::resource для краткости и удобства
 });
+
+// Маршруты поиска
+Route::get('/search', [ServiceController::class, 'search'])->name('service.search')->middleware('auth');

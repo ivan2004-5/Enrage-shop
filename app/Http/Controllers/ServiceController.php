@@ -11,8 +11,12 @@ class ServiceController extends Controller
 {
     public function index()
     {
-        $services = Service::all()->unique('id');
-        return view('service', compact('services'));
+        if (auth()->check()) {
+            $services = Service::all()->unique('id');
+            return view('service', compact('services'));
+        } else {
+            return view('auth.need_auth');
+        }
     }
     public function create()
     {
@@ -86,6 +90,24 @@ class ServiceController extends Controller
     public function showServices()
     {
         $services = Service::all()->unique('id');
+        return view('service', compact('services'));
+    }
+    public function search(Request $request)
+    {
+        // Проверка авторизации пользователя
+        if (!auth()->check()) {
+            return view('auth.need_auth');
+        }
+    
+        $query = $request->input('query');
+    
+        $services = Service::where('title', 'like', '%' . $query . '%')
+                           ->get();
+    
+        if ($services->isEmpty()) {
+            return view('no_results');
+        }
+    
         return view('service', compact('services'));
     }
 }

@@ -26,14 +26,16 @@ class CartController extends Controller
         return redirect()->route('cart')->with('success', 'Товар добавлен в корзину!');
     }
 
-
     public function showCart()
     {
-        $cart = Auth::check() ? Auth::user()->cart()->firstOrCreate([]) : Cart::firstOrCreate([]);
-        $cartItems = $cart->cartItems;
-        return view('cart', compact('cartItems'));
+        if (Auth::check()) {
+            $cart = Auth::user()->cart()->firstOrCreate([]);
+            $cartItems = $cart->cartItems;
+            return view('cart', compact('cartItems'));
+        } else {
+            return view('auth.need_auth');
+        }
     }
-
 
     public function removeCartItem(Request $request, $itemId)
     {
@@ -41,6 +43,7 @@ class CartController extends Controller
         $cartItem->delete();
         return redirect()->route('cart')->with('success', 'Товар удален из корзины!');
     }
+
     public function add(Request $request, Service $service)
     {
         try {
