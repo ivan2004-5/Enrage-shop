@@ -2,6 +2,13 @@ body {
     background-color: #1E1E1E;
 }
 
+.flex-show {
+    display: flex;
+    justify-content: space-around;
+    height: 500px;
+    align-items: center;
+}
+
 .show-flex {
     width: 100%;
     height: 600px;
@@ -25,4 +32,24 @@ body {
     width: 272px;
     height: 40px;
     border-radius: 7px;
+    border: 1px solid transparent;
+    border-image: linear-gradient(#006AFF, #0B3D82);
+    -moz-border-image: -moz-linear-gradient(#006AFF, #0B3D82);
+    -webkit-border-image: -webkit-linear-gradient(#006AFF, #0B3D82);
+    border-image-slice: 1;    border: 1px solid transparent;
+    border-image: linear-gradient(#006AFF, #0B3D82);
+    -moz-border-image: -moz-linear-gradient(#006AFF, #0B3D82);
+    -webkit-border-image: -webkit-linear-gradient(#006AFF, #0B3D82);
+    border-image-slice: 1;
+}
+
+.custom-btn {
+    width: 130px;
+    height: 38px;
+    background-color: #141414;
+    border: 1px solid transparent;
+    border-image: linear-gradient(#006AFF, #0B3D82);
+    -moz-border-image: -moz-linear-gradient(#006AFF, #0B3D82);
+    -webkit-border-image: -webkit-linear-gradient(#006AFF, #0B3D82);
+    border-image-slice: 1;
 }

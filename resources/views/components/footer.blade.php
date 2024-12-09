@@ -6,10 +6,10 @@
             <img class="max-w-40" src="{{asset('image/googleplay.png')}}" alt="">
         </div>
         <div class="info-footer mt-5">
-            <a class="text-white" href="#">Термины и Кондиции</a>
-            <a class="text-white" href="#">Печеньки полиси</a>
-            <a class="text-white" href="#">Privacy Policy</a>
-            <a class="text-white" href="#">Copyright Complaint</a>
+            <a class="text-white" href="#">Правила и условия</a>
+            <a class="text-white" href="#">Политика использования файлов cookie</a>
+            <a class="text-white" href="#">Политика конфиденциальности</a>
+            <a class="text-white" href="#">Жалоба на нарушение авторских прав</a>
         </div>
     </section>
 

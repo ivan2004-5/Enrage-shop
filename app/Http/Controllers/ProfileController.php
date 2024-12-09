@@ -11,16 +11,16 @@ class ProfileController extends Controller
     public function show()
     {
         if (Auth::check()) {
-            // Fetch orders from the last 7 days using query builder
+            // Выборка заказов за последние 7 дней с помощью конструктора запросов
             $orderCounts = [];
             for ($i = 6; $i >= 0; $i--) {
                 $date = now()->subDays($i)->format('Y-m-d');
-                // Count orders for each date
+                // Заказы на каждую дату
                 $count = Order::whereDate('created_at', $date)->count();
                 $orderCounts[] = $count;
             }
     
-            // Prepare dates for the x-axis
+            // Даты по оси x
             $dates = [];
             for ($i = 6; $i >= 0; $i--) {
                 $dates[] = now()->subDays($i)->format('d F');
