@@ -46,7 +46,6 @@ class ServiceController extends Controller
             'title' => $request->title,
             'price' => $request->price,
             'fone_img' => $imagePath,
-            'desc' => $request->description
         ]);
 
         return redirect()->route('admin.services.index')->with('success', 'Услуга добавлена!');
