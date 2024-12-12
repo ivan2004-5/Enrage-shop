@@ -1,19 +1,18 @@
-.create-cont {
+.edit-content {
     display: flex;
+    width: 100%;   
+    height: 500px;
     justify-content: center;
     align-items: center;
-    width: 100%;
-    height: 600px;
 }
 
-.create-flex {
+.edit-block {
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
+    align-items: center;
     width: 400px;
     height: 500px;
-    border-radius: 10px;
     background-color: #141414;
-    gap: 10px;
+    border-radius: 10px;
+    gap: 20px;
 }
