@@ -16,7 +16,6 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id')->nullable();
             $table->text('description');
             $table->decimal('total_price', 10, 2);
-            $table->string('mp3_file_path')->nullable();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });

@@ -1,19 +1,21 @@
 <?php
 
-    namespace App\Http\Middleware;
+namespace App\Http\Middleware;
 
-    use Closure;
-    use Illuminate\Http\Request;
-    use Illuminate\Support\Facades\Auth;
+use Closure;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
-    class AdminMiddleware
+class AdminMiddleware
+{
+    public function handle(Request $request, Closure $next): mixed
     {
-        public function handle(Request $request, Closure $next): mixed
-        {
-            if (Auth::check() && Auth::user()->is_admin) { // Исправлена эта строка
-                return $next($request);
-            }
-
-            abort(403, 'Доступ запрещён');
+        // Проверяем, авторизован ли пользователь и является ли он администратором
+        if (Auth::check() && Auth::user()->is_admin) {
+            // Если пользователь авторизован и является администратором, передаем запрос дальше
+            return $next($request);
         }
+
+        abort(403, 'Доступ запрещён');
     }
+}

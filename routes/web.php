@@ -12,9 +12,9 @@ use App\Http\Middleware\AdminMiddleware;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthenticatedSessionController;
 
+// Маршруты по сайту
 Route::get('/', [IndexController::class, 'index'])->name('index');
 Route::get('/service', [IndexController::class, 'service'])->name('service');
-Route::get('/basket', [IndexController::class, 'basket'])->name('basket');
 
 // Маршруты авторизации/регистрации:
 Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');

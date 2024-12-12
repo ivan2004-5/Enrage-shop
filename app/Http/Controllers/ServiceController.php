@@ -26,7 +26,7 @@ class ServiceController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'title' => 'required|string|max:255',
+            'title' => 'required|string|max:25',
             'price' => 'required|numeric',
             'fone_img' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // Проверьте max размер
         ]);

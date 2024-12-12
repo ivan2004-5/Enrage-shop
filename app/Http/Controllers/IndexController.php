@@ -18,9 +18,5 @@ class IndexController extends Controller
         return view('service', compact('services'));
     }
 
-    public function basket()
-    {
-        return view('basket');
-    }
 }
 
