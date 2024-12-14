@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use App\Models\Order;
+use App\Models\{Order, OrderItem};
 use PhpOffice\PhpWord\PhpWord;
 use PhpOffice\PhpWord\IOFactory;
 use Log; // Добавляем для логирования
@@ -13,8 +13,8 @@ class AdminController extends Controller
 {
     public function downloadReport()
     {
-        $orders = Order::with(['user', 'service'])->get();
-
+        $orders = Order::with(['user', 'orderItems.service'])->get();
+        
         // Логируем информацию о ненайденных пользователях и услугах
         $missingUsers = DB::table('orders as o')
             ->leftJoin('users as u', 'o.user_id', '=', 'u.id')
@@ -50,7 +50,9 @@ class AdminController extends Controller
         foreach ($orders as $order) {
             $section->addText("Заказ №{$order->id}", ['bold' => true]);
             $section->addText("Пользователь: " . ($order->user ? $order->user->name : 'Не указан'));
-            $section->addText("Услуга: " . ($order->service ? $order->service->name : 'Не указана'));
+            foreach ($order->orderItems as $item) {
+                $section->addText("Услуга: " . ($item->service ? $item->service->title : 'Не указана'));
+            }
             $section->addText("Дата заказа: {$order->created_at}");
             $section->addTextBreak();
         }

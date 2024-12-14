@@ -38,6 +38,7 @@ class OrderController extends Controller
                 'user_id' => Auth::id(),
                 'description' => $request->description,
                 'total_price' => $totalPrice,
+                'service_id' => $request->service_id,
             ]);
 
             foreach ($cart->cartItems as $cartItem) {
@@ -46,6 +47,7 @@ class OrderController extends Controller
                     'service_id' => $cartItem->service_id,
                     'quantity' => $cartItem->quantity,
                     'price' => $cartItem->service->price,
+                    
                 ]);
             }
 
