@@ -14,6 +14,7 @@ return new class extends Migration
             $table->string('email', 80)->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password', 80);
+            $table->unsignedTinyInteger('is_yandex')->default(0);
             $table->rememberToken();
             $table->timestamps();
             $table->binary('avatar')->nullable();

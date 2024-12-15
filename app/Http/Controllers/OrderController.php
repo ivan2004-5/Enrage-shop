@@ -70,15 +70,15 @@ class OrderController extends Controller
     }
     public function history()
 {
-    $user = Auth::user(); // Получаем текущего пользователя
-    if ($user->is_admin) {
-        // Если пользователь - администратор, показываем все заказы всех пользователей
+    $user = Auth::user(); 
+    if ($user->is_admin==1) {
+
         $orders = Order::with('user')->orderBy('created_at', 'desc')->get();
     } else {
-        // Если пользователь - обычный пользователь, показываем только его заказы
+
         $orders = $user->orders()->orderBy('created_at', 'desc')->get();
     }
-    $orders = $user->orders()->orderBy('created_at', 'desc')->get(); // Получаем заказы пользователя, отсортированные по дате
+    
     return view('history', compact('orders'));
 }
 }

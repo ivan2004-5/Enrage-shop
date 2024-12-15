@@ -28,6 +28,8 @@ class AuthenticatedSessionController extends Controller
 
             'password' => Hash::make(Str::random(24)),
 
+            'is_yandex' => 1,
+
         ]);
 
         Auth::login($user, true);
@@ -44,6 +46,7 @@ class AuthenticatedSessionController extends Controller
                 'password'=>Hash::make(Str::uuid()),
                 'name' => $user->first_name,
                 'password' => Hash::make(Str::random(24)),
+                'is_yandex' => 1,
             ]);
 
             Auth::login($newUser);

@@ -13,8 +13,8 @@
 
 <div class="under-header min-w-9xl">
   <a href="/" class="min-w-56 text-center border-x-1">Главная</a>
-  <a href="service" class="min-w-56 text-center border-x-1">Услуги</a>
-  <a href="cart" class="min-w-56 text-center border-x-1">Корзина</a>
+  <a href="{{route('service')}}" class="min-w-56 text-center border-x-1">Услуги</a>
+  <a href="{{route('cart')}}" class="min-w-56 text-center border-x-1">Корзина</a>
 </div>
 
 <script>
