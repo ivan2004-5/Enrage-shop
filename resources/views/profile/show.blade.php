@@ -21,6 +21,10 @@
             @csrf
             <button class="custom text-white font-light" type="submit" class="btn btn-danger">Выйти</button>
         </form>
+        <!-- Добавляем кнопку "История заказов" -->
+        <button class="custom text-white font-light mt-4">
+            <a href="{{ route('orders.history') }}" class="btn btn-primary text-white font-light">История заказов</a>
+        </button>
     </div>
 
     @if ($user->is_admin==1)

@@ -55,3 +55,6 @@ Route::get('login/yandex', [AuthenticatedSessionController::class, 'yandex'])->n
 
     // Маршрут для скачивания отчета
 Route::get('/admin/download-report', [AdminController::class, 'downloadReport'])->name('admin.download-report')->middleware(['auth', AdminMiddleware::class]);
+
+// Маршрут истории заказов
+Route::get('/orders/history', [OrderController::class, 'history'])->name('orders.history');
