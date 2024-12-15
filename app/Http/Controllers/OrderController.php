@@ -23,11 +23,10 @@ class OrderController extends Controller
     {
         $request->validate([
             'description' => 'required',
-            'mp3_file' => 'nullable|file|mimes:mp3|max:10240', // nullable - mp3 файл не обязателен
         ]);
 
         try {
-            $cart = Auth::user()->cart()->first(); // Используем first() вместо firstOrCreate([])
+            $cart = Auth::user()->cart()->first();
             if (!$cart || $cart->cartItems->isEmpty()) {
                 return redirect()->route('cart')->with('error', 'Ваша корзина пуста!');
             }
@@ -38,7 +37,6 @@ class OrderController extends Controller
                 'user_id' => Auth::id(),
                 'description' => $request->description,
                 'total_price' => $totalPrice,
-                'service_id' => $request->service_id,
             ]);
 
             foreach ($cart->cartItems as $cartItem) {
@@ -47,13 +45,7 @@ class OrderController extends Controller
                     'service_id' => $cartItem->service_id,
                     'quantity' => $cartItem->quantity,
                     'price' => $cartItem->service->price,
-                    
                 ]);
-            }
-
-            if ($request->hasFile('mp3_file')) {
-                $path = $request->file('mp3_file')->store('orders');
-                $order->update(['mp3_file_path' => $path]);
             }
 
             $cart->cartItems()->delete();
@@ -64,21 +56,22 @@ class OrderController extends Controller
         }
     }
 
+
     public function success()
     {
         return view('order.success');
     }
     public function history()
-{
-    $user = Auth::user(); 
-    if ($user->is_admin==1) {
+    {
+        $user = Auth::user();
+        if ($user->is_admin == 1) {
 
-        $orders = Order::with('user')->orderBy('created_at', 'desc')->get();
-    } else {
+            $orders = Order::with('user')->orderBy('created_at', 'desc')->get();
+        } else {
 
-        $orders = $user->orders()->orderBy('created_at', 'desc')->get();
+            $orders = $user->orders()->orderBy('created_at', 'desc')->get();
+        }
+
+        return view('history', compact('orders'));
     }
-    
-    return view('history', compact('orders'));
-}
 }

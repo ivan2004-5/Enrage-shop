@@ -3,43 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use App\Models\{Order, OrderItem};
 use PhpOffice\PhpWord\PhpWord;
 use PhpOffice\PhpWord\IOFactory;
-use Log; // Добавляем для логирования
+use Log;
 
 class AdminController extends Controller
 {
     public function downloadReport()
     {
+        // Получаем заказы с связанными пользователями и товарами
         $orders = Order::with(['user', 'orderItems.service'])->get();
-        
-        // Логируем информацию о ненайденных пользователях и услугах
-        $missingUsers = DB::table('orders as o')
-            ->leftJoin('users as u', 'o.user_id', '=', 'u.id')
-            ->whereNull('u.id')
-            ->select('o.id', 'o.user_id')
-            ->get();
-
-        if ($missingUsers->isNotEmpty()) {
-            foreach ($missingUsers as $order) {
-                Log::warning("Заказ ID: {$order->id} не имеет соответствующего пользователя (user_id: {$order->user_id})");
-            }
-        }
-
-        $missingServices = DB::table('orders as o')
-            ->leftJoin('services as s', 'o.service_id', '=', 's.id')
-            ->whereNull('s.id')
-            ->select('o.id', 'o.service_id')
-            ->get();
-
-        if ($missingServices->isNotEmpty()) {
-            foreach ($missingServices as $order) {
-                Log::warning("Заказ ID: {$order->id} не имеет соответствующей услуги (service_id: {$order->service_id})");
-            }
-        }
-
 
         $phpWord = new PhpWord();
         $section = $phpWord->addSection();
@@ -50,10 +24,17 @@ class AdminController extends Controller
         foreach ($orders as $order) {
             $section->addText("Заказ №{$order->id}", ['bold' => true]);
             $section->addText("Пользователь: " . ($order->user ? $order->user->name : 'Не указан'));
-            foreach ($order->orderItems as $item) {
-                $section->addText("Услуга: " . ($item->service ? $item->service->title : 'Не указана'));
-            }
             $section->addText("Дата заказа: {$order->created_at}");
+
+            // Обрабатываем товары в заказе
+            if ($order->orderItems->isNotEmpty()) {
+                foreach ($order->orderItems as $item) {
+                    $section->addText("Услуга: " . ($item->service ? $item->service->title : 'Не указана') . ", Количество: {$item->quantity}, Цена: {$item->price}");
+                }
+            } else {
+                $section->addText('Товары в заказе отсутствуют.');
+            }
+
             $section->addTextBreak();
         }
 

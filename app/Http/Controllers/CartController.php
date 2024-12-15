@@ -14,17 +14,19 @@ class CartController extends Controller
     public function addToCart(Request $request, $serviceId)
     {
         $service = Service::findOrFail($serviceId);
+        $cart = Auth::user()->cart()->firstOrCreate([]);
 
-        // Находим или создаем корзину для пользователя
-        $cart = Auth::check() ? Auth::user()->cart()->firstOrCreate([]) : Cart::firstOrCreate([]);
+        // Запись для каждого добавления товара.
+        $cart->cartItems()->create([
+            'service_id' => $serviceId,
+            'quantity' => 1,
+        ]);
 
-        // Находим или создаем товар в корзине
-        $cartItem = $cart->cartItems()->firstOrCreate(['service_id' => $serviceId]);
-        $cartItem->quantity++;
-        $cartItem->save();
-
-        return redirect()->route('cart')->with('success', 'Товар добавлен в корзину!');
+        return response()->json(['success' => true, 'message' => 'Товар добавлен в корзину!'], 200);
     }
+
+
+
 
     public function showCart()
     {
@@ -41,30 +43,6 @@ class CartController extends Controller
     {
         $cartItem = CartItem::findOrFail($itemId);
         $cartItem->delete();
-        return redirect()->route('cart')->with('success', 'Товар удален из корзины!');
-    }
-
-    public function add(Request $request, Service $service)
-    {
-        try {
-            $cart = Auth::user()->cart()->firstOrCreate([]);
-            $cartItem = $cart->cartItems()->firstOrCreate([
-                'service_id' => $service->id,
-            ], [
-                'quantity' => 1,
-            ]);
-
-            if ($cartItem->wasRecentlyCreated) {
-                Log::info('Cart item created. Cart ID: ' . $cart->id . ', Service ID: ' . $service->id);
-            } else {
-                $cartItem->increment('quantity');
-                Log::info('Cart item quantity incremented. Cart ID: ' . $cart->id . ', Service ID: ' . $service->id);
-            }
-
-            return redirect()->back()->with('success', 'Товар добавлен в корзину!');
-        } catch (\Exception $e) {
-            Log::error('Error adding item to cart: ' . $e->getMessage());
-            return redirect()->back()->withErrors(['error' => 'Ошибка при добавлении товара в корзину.']);
-        }
+        return response()->json(['success' => true, 'message' => 'Товар удален из корзины!'], 200);
     }
 }

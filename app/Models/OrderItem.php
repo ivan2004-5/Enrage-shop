@@ -17,8 +17,4 @@ class OrderItem extends Model
     {
         return $this->belongsTo(Service::class);
     }
-    // public function orderItems()
-    // {
-    //     return $this->hasMany(OrderItem::class);
-    // }
 }

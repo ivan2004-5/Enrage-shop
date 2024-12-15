@@ -29,6 +29,10 @@ Route::get('/profile', [ProfileController::class, 'show'])->name('profile')->mid
 Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit')->middleware('auth');
 Route::put('/profile/update', [ProfileController::class, 'update'])->name('profile.update')->middleware('auth');
 
+// Маршрут удаления услуги из корзины
+Route::delete('/cart/remove/{itemId}', [CartController::class, 'removeCartItem'])->name('cart.remove');
+Route::get('/cart', [CartController::class, 'showCart'])->name('cart.show');
+
 // Маршруты для добавления услуг в корзину
 Route::get('/service', [ServiceController::class, 'index'])->name('service');
 Route::post('/cart/{serviceId}', [CartController::class, 'addToCart'])->name('cart.add'); //Маршрут для добавления товара
